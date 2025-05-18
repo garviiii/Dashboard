@@ -1,0 +1,62 @@
+[
+  {
+    "name": "John Steven Doe",
+    "email": "john@example.com",
+    "role": "UI/UX Designer",
+    "status": "Active"
+  },
+  {
+    "name": "Barry Jhayson",
+    "email": "barry@company.com",
+    "role": "Backend Engineer",
+    "status": "Inactive"
+  },
+  {
+    "name": "Tiwa Cavage",
+    "email": "tiwa@company.com",
+    "role": "Product Designer",
+    "status": "Active"
+  },
+  {
+    "name": "James IDK",
+    "email": "james@company.com",
+    "role": "Frontend Dev",
+    "status": "Inactive"
+  },
+  {
+    "name": "Vanessa Chidi",
+    "email": "vanessa@company.com",
+    "role": "UI/UX Designer",
+    "status": "Active"
+  },
+  {
+    "name": "Don Gorgon",
+    "email": "don@designhub.com",
+    "role": "Motion Designer",
+    "status": "Active"
+  },
+  {
+    "name": "Sarah Wilson",
+    "email": "sarah@creative.io",
+    "role": "Project Manager",
+    "status": "Inactive"
+  },
+  {
+    "name": "Marcus Lee",
+    "email": "marcus@agency.com",
+    "role": "UI Engineer",
+    "status": "Active"
+  },
+  {
+    "name": "Aisha Bello",
+    "email": "aisha@techfirm.com",
+    "role": "UX Researcher",
+    "status": "Active"
+  },
+  {
+    "name": "David Kim",
+    "email": "david@koreastudio.com",
+    "role": "Illustrator",
+    "status": "Inactive"
+  }
+]
