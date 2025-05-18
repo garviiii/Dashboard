@@ -1,5 +1,7 @@
 import users from "../data/users.json";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -27,26 +29,33 @@ import {
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null); 
+
+  const navigate = useNavigate();
+  const { user, logOut } = useContext(UserContext);
+  
   return (
-    <div className="flex h-screen bg-[#f1f5f9]">
+    <div className="flex h-screen bg-[#f1f5f9] overflow-y-hidden">
       {/* Sidebar */}
       <aside
-        className={`fixed md:static z-50 top-0 left-0 h-full w-64 bg-[#0e1a45] text-white flex flex-col p-4 transform transition-transform duration-300 ease-in-out
+        className={`fixed md:static z-50 top-0 left-0 h-screen w-64 bg-[#0e1a45] text-white flex flex-col p-4 transform transition-transform duration-300 ease-in-out
     ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
       >
-        <div className="flex items-center gap-4 mb-10">
+        <div className="flex items-center gap-4 mb-10 shrink-0">
           <img
             src="/avatars/admin.png"
-            alt="Admin Avatar"
+            alt="User Avatar"
             className="w-20 h-20 rounded-full border-4 border-white object-cover"
           />
           <div className="flex flex-col">
-            <p className="font-bold text-lg">KRIS Admin</p>
-            <p className="text-sm text-gray-300">Admin</p>
+            <p className="font-bold text-lg break-all">
+              {user ? user.email.split("@")[0] : "User"}
+            </p>
+            <p className="text-sm text-gray-300">User</p>
           </div>
         </div>
 
-        <nav className="space-y-4">
+        <nav className="space-y-4 flex-1 overflow-y-auto pr-2 scrollbar-hide">
           <div className="text-sm uppercase text-gray-400">Features</div>
           <NavItem
             label="Dashboard"
@@ -76,7 +85,13 @@ export default function Dashboard() {
           <NavItem label="Payroll Management" icon={faMoneyCheckAlt} />
         </nav>
 
-        <button className="mt-auto bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded-lg flex items-center justify-center gap-2">
+        <button
+          className="w-full mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 shrink-0"
+          onClick={() => {
+            logOut();
+            navigate("/");
+          }}
+        >
           <FontAwesomeIcon icon={faSignOutAlt} />
           Log Out
         </button>
@@ -306,7 +321,10 @@ export default function Dashboard() {
                     {users.map((user, idx) => (
                       <tr
                         key={idx}
-                        className={idx % 2 === 0 ? "bg-white" : "bg-blue-50"}
+                        onClick={() => setSelectedUser(user)}
+                        className={`${
+                          idx % 2 === 0 ? "bg-white" : "bg-blue-100"
+                        } cursor-pointer hover:bg-blue-200 transition`}
                       >
                         <td className="px-6 py-4 font-medium">{user.name}</td>
                         <td className="px-6 py-4">{user.email}</td>
@@ -331,6 +349,60 @@ export default function Dashboard() {
           </div>
         )}
       </main>
+      {/* ---------- User Detail Modal ---------- */}
+      {selectedUser && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm"
+          onClick={() => setSelectedUser(null)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-3xl w-[90%] max-w-md p-6 shadow-xl animate-scaleIn"
+          >
+            {/* header */}
+            <div className="flex items-center gap-4 mb-4">
+              <img
+                src="/avatars/user1.png"
+                alt={selectedUser.name}
+                className="w-16 h-16 rounded-full object-cover"
+              />
+              <div>
+                <h2 className="text-xl font-bold">{selectedUser.name}</h2>
+                <p className="text-sm text-gray-500">{selectedUser.role}</p>
+              </div>
+            </div>
+
+            {/* details */}
+            <ul className="space-y-2 text-gray-700 text-sm">
+              <li>
+                <strong>Email:</strong> {selectedUser.email}
+              </li>
+              <li>
+                <strong>Phone:</strong> {selectedUser.phone}
+              </li>
+              <li>
+                <strong>Department:</strong> {selectedUser.department}
+              </li>
+              <li>
+                <strong>Address:</strong> {selectedUser.address}
+              </li>
+              <li>
+                <strong>Status:</strong> {selectedUser.status}
+              </li>
+            </ul>
+
+            <p className="mt-4 text-gray-600 text-sm">{selectedUser.bio}</p>
+
+            {/* footer */}
+            <button
+              onClick={() => setSelectedUser(null)}
+              className="mt-6 w-full bg-blue-700 hover:bg-blue-800 text-white py-2 rounded-lg"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

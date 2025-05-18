@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -13,9 +15,8 @@ export default function Login() {
       alert("Please enter email and password");
       return;
     }
-
-    localStorage.setItem("user", JSON.stringify({ email }));
     // navigation logic
+    setUser({ email });
     navigate("/dashboard");
   };
 

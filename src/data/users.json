@@ -3,60 +3,100 @@
     "name": "John Steven Doe",
     "email": "john@example.com",
     "role": "UI/UX Designer",
-    "status": "Active"
+    "status": "Active",
+    "phone": "+1 555-0100",
+    "address": "123 Market St, San Francisco, CA",
+    "department": "Product",
+    "bio": "Passionate about building delightful user experiences."
   },
   {
     "name": "Barry Jhayson",
     "email": "barry@company.com",
     "role": "Backend Engineer",
-    "status": "Inactive"
+    "status": "Inactive",
+    "phone": "+1 555-0100",
+    "address": "123 Market St, San Francisco, CA",
+    "department": "Product",
+    "bio": "Passionate about building delightful user experiences."
   },
   {
     "name": "Tiwa Cavage",
     "email": "tiwa@company.com",
     "role": "Product Designer",
-    "status": "Active"
+    "status": "Active",
+    "phone": "+1 555-0100",
+    "address": "123 Market St, San Francisco, CA",
+    "department": "Product",
+    "bio": "Passionate about building delightful user experiences."
   },
   {
     "name": "James IDK",
     "email": "james@company.com",
     "role": "Frontend Dev",
-    "status": "Inactive"
+    "status": "Inactive",
+    "phone": "+1 555-0100",
+    "address": "123 Market St, San Francisco, CA",
+    "department": "Product",
+    "bio": "Passionate about building delightful user experiences."
   },
   {
     "name": "Vanessa Chidi",
     "email": "vanessa@company.com",
     "role": "UI/UX Designer",
-    "status": "Active"
+    "status": "Active",
+    "phone": "+1 555-0100",
+    "address": "123 Market St, San Francisco, CA",
+    "department": "Product",
+    "bio": "Passionate about building delightful user experiences."
   },
   {
     "name": "Don Gorgon",
     "email": "don@designhub.com",
     "role": "Motion Designer",
-    "status": "Active"
+    "status": "Active",
+    "phone": "+1 555-0100",
+    "address": "123 Market St, San Francisco, CA",
+    "department": "Product",
+    "bio": "Passionate about building delightful user experiences."
   },
   {
     "name": "Sarah Wilson",
     "email": "sarah@creative.io",
     "role": "Project Manager",
-    "status": "Inactive"
+    "status": "Inactive",
+    "phone": "+1 555-0100",
+    "address": "123 Market St, San Francisco, CA",
+    "department": "Product",
+    "bio": "Passionate about building delightful user experiences."
   },
   {
     "name": "Marcus Lee",
     "email": "marcus@agency.com",
     "role": "UI Engineer",
-    "status": "Active"
+    "status": "Active",
+    "phone": "+1 555-0100",
+    "address": "123 Market St, San Francisco, CA",
+    "department": "Product",
+    "bio": "Passionate about building delightful user experiences."
   },
   {
     "name": "Aisha Bello",
     "email": "aisha@techfirm.com",
     "role": "UX Researcher",
-    "status": "Active"
+    "status": "Active",
+    "phone": "+1 555-0100",
+    "address": "123 Market St, San Francisco, CA",
+    "department": "Product",
+    "bio": "Passionate about building delightful user experiences."
   },
   {
     "name": "David Kim",
     "email": "david@koreastudio.com",
     "role": "Illustrator",
-    "status": "Inactive"
+    "status": "Inactive",
+    "phone": "+1 555-0100",
+    "address": "123 Market St, San Francisco, CA",
+    "department": "Product",
+    "bio": "Passionate about building delightful user experiences."
   }
 ]
